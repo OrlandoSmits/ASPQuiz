@@ -1,4 +1,5 @@
 using ASPQuiz.Domain.Concrete;
+using ASPQuiz.Domain.Entities;
 
 namespace ASPQuiz.Domain.Migrations
 {
@@ -18,6 +19,16 @@ namespace ASPQuiz.Domain.Migrations
 
         protected override void Seed(ASPQuiz.Domain.Concrete.EFDbContext context)
         {
+            this.Context = context;
+
+            Question q1 = new Question()
+            {
+                QuestionText = "Is ASP Awesome",
+            };
+
+            context.Questions.AddOrUpdate(q1);
+
+
             base.Seed(context);
             
         }
