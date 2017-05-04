@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASPQuiz.WebUI", "ASPQuiz\ASPQuiz.WebUI.csproj", "{864D5E69-8978-482D-AF5E-83929BE36626}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASPQuiz.Tests", "ASPQuiz.Tests\ASPQuiz.Tests.csproj", "{FFDE6100-4357-4BD9-86C3-75C8A28A12B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASPQuiz.Domain", "ASPQuiz.Domain\ASPQuiz.Domain.csproj", "{B97C638F-37C4-4B3C-A0EC-58693984EDF2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{864D5E69-8978-482D-AF5E-83929BE36626}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{864D5E69-8978-482D-AF5E-83929BE36626}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{864D5E69-8978-482D-AF5E-83929BE36626}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{864D5E69-8978-482D-AF5E-83929BE36626}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFDE6100-4357-4BD9-86C3-75C8A28A12B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFDE6100-4357-4BD9-86C3-75C8A28A12B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFDE6100-4357-4BD9-86C3-75C8A28A12B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFDE6100-4357-4BD9-86C3-75C8A28A12B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B97C638F-37C4-4B3C-A0EC-58693984EDF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B97C638F-37C4-4B3C-A0EC-58693984EDF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B97C638F-37C4-4B3C-A0EC-58693984EDF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B97C638F-37C4-4B3C-A0EC-58693984EDF2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
