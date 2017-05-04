@@ -78,18 +78,27 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\IQuizRepository.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="Concrete\EFDbContext.cs" />
     <Compile Include="Concrete\EFQuizRepository.cs" />
+    <Compile Include="Concrete\QuizInitializer.cs" />
     <Compile Include="Entities\Answer.cs" />
     <Compile Include="Entities\Question.cs" />
+    <Compile Include="Migrations\201705041113282_init-migration.cs" />
+    <Compile Include="Migrations\201705041113282_init-migration.Designer.cs">
+      <DependentUpon>201705041113282_init-migration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201705041113282_init-migration.resx">
+      <DependentUpon>201705041113282_init-migration.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
