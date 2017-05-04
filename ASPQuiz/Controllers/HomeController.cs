@@ -29,5 +29,12 @@ namespace ASPQuiz.Controllers
 
             return View(Questions);
         }
+
+        public ActionResult AnswerOverView()
+        {
+            IEnumerable<Answer> Answers = _context.Answers;
+
+            return View(Answers);
+        }
     }
 }
