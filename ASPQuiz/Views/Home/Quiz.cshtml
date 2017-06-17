@@ -32,7 +32,7 @@
     </table>
 }
 
-Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+Vraag @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) van @Model.PageCount
 
 @Html.PagedListPager(Model, page => Url.Action("Quiz",
     new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))

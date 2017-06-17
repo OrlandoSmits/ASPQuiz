@@ -22,7 +22,7 @@ namespace ASPQuiz.Domain.Migrations
         protected override void Seed(ASPQuiz.Domain.Concrete.EFDbContext context)
         {
             this.Context = context;
-
+    
             Answer q1a1 = new Answer()
             {
                 AnswerText = "Jazeker"
@@ -60,9 +60,81 @@ namespace ASPQuiz.Domain.Migrations
                 CorrectAnswer = q1a3
             };
 
+            Question q3 = new Question()
+            {
+                QuestionText = "Is deze vraag getoond?",
+                Answer1 = q1a1,
+                Answer2 = q1a2,
+                CorrectAnswer = q1a3
+            };
+
+            Question q4 = new Question()
+            {
+                QuestionText = "Is C# uiteindelijk best chill?",
+                Answer1 = q1a1,
+                Answer2 = q1a2,
+                CorrectAnswer = q1a3
+            };
+
+            Question q5 = new Question()
+            {
+                QuestionText = "Is C# uiteindelijk best chill?",
+                Answer1 = q1a1,
+                Answer2 = q1a2,
+                CorrectAnswer = q1a3
+            };
+
+            Question q6 = new Question()
+            {
+                QuestionText = "Is C# uiteindelijk best chill?",
+                Answer1 = q1a1,
+                Answer2 = q1a2,
+                CorrectAnswer = q1a3
+            };
+
+            Question q7 = new Question()
+            {
+                QuestionText = "Is C# uiteindelijk best chill?",
+                Answer1 = q1a1,
+                Answer2 = q1a2,
+                CorrectAnswer = q1a3
+            };
+
+            Question q8 = new Question()
+            {
+                QuestionText = "Is C# uiteindelijk best chill?",
+                Answer1 = q1a1,
+                Answer2 = q1a2,
+                CorrectAnswer = q1a3
+            };
+
+            Question q9 = new Question()
+            {
+                QuestionText = "Is C# uiteindelijk best chill?",
+                Answer1 = q1a1,
+                Answer2 = q1a2,
+                CorrectAnswer = q1a3
+            };
+
+            Question q10 = new Question()
+            {
+                QuestionText = "Is C# uiteindelijk best chill?",
+                Answer1 = q1a1,
+                Answer2 = q1a2,
+                CorrectAnswer = q1a3
+            };
+
 
             context.Questions.AddOrUpdate(q1);
             context.Questions.AddOrUpdate(q2);
+            context.Questions.AddOrUpdate(q3);
+            context.Questions.AddOrUpdate(q4);
+            context.Questions.AddOrUpdate(q5);
+            context.Questions.AddOrUpdate(q6);
+            context.Questions.AddOrUpdate(q7);
+            context.Questions.AddOrUpdate(q8);
+            context.Questions.AddOrUpdate(q9);
+            context.Questions.AddOrUpdate(q10);
 
 
             base.Seed(context);
