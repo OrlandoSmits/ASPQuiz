@@ -1,6 +1,6 @@
 ﻿@model ASPQuiz.Models.QuizIndexViewModel
 
-@if (Model.Quiz != null || Model.Quiz.Lines != null)
+@if (Model.Quiz != null)
 {
     <h2>Jouw toets!</h2>
     <table class="table">
@@ -18,7 +18,7 @@
                 <td class="text-left">@line.Question.QuestionText</td>
                 <td class="text-left">@line.Answer.AnswerText</td>
 
-                @if (@line.Answer.Id == @line.Question.CorrectAnswer.Id)
+                @if (line.isAnswerCorrect())
                 {
                     <td class="text-right">Goed</td>
                     <td></td>

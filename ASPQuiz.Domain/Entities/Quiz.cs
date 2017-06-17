@@ -32,7 +32,7 @@ namespace ASPQuiz.Domain.Entities
 
         public void CalculateGrade()
         {
-            //TODO: Calculate the Grade
+            
         }
 
         public void Clear()
@@ -50,5 +50,11 @@ namespace ASPQuiz.Domain.Entities
     {
         public Question Question { get; set; }
         public Answer Answer { get; set; }
+
+
+        public Boolean isAnswerCorrect()
+        {
+          return this.Question.CorrectAnswer.Id == this.Answer.Id;
+        }
     }
 }
