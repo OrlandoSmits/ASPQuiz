@@ -52,8 +52,17 @@ namespace ASPQuiz.Domain.Migrations
                 CorrectAnswer = q1a3
             };
 
+            Question q2 = new Question()
+            {
+                QuestionText = "Is deze vraag getoond?",
+                Answer1 = q1a1,
+                Answer2 = q1a2,
+                CorrectAnswer = q1a3
+            };
+
 
             context.Questions.AddOrUpdate(q1);
+            context.Questions.AddOrUpdate(q2);
 
 
             base.Seed(context);

@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using ASPQuiz.Domain.Concrete;
 using ASPQuiz.Domain.Entities;
 using Ninject;
+using PagedList;
 
 namespace ASPQuiz.Controllers
 {
@@ -37,11 +38,14 @@ namespace ASPQuiz.Controllers
             return View(Answers);
         }
 
-		public ActionResult Quiz()
+		public ViewResult Quiz(int? page)
 		{
 			IEnumerable<Question> Questions = _context.Questions;
 
-			return View(Questions);
+		    IEnumerable<Question> questionList = Questions.OrderBy(q => q.QuestionText);
+		    int pageSize = 1;
+		    int pageNumber = (page ?? 1);
+			return View(questionList.ToPagedList(pageNumber, pageSize));
 		}
 
     }
