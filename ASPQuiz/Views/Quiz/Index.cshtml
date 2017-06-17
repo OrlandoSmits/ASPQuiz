@@ -21,7 +21,6 @@
         <tr class="col-sm-12 col-xs-12">
             <td class="col-sm-4 col-xs-4">
                 @Html.DisplayFor(model => item.Answer1.AnswerText)
-                <input type="checkbox"/>
             </td>
             <td>
                 @using (Html.BeginForm("AddToQuiz", "Quiz"))
@@ -34,7 +33,6 @@
             </td>
             <td class="col-sm-4 col-xs-4">
                 @Html.DisplayFor(model => item.Answer2.AnswerText)
-                <input type="checkbox"/>
             </td>
             <td>
                 @using (Html.BeginForm("AddToQuiz", "Quiz"))
@@ -47,7 +45,6 @@
             </td>
             <td class="col-sm-4 col-xs-4">
                 @Html.DisplayFor(model => item.CorrectAnswer.AnswerText)
-                <input type="checkbox"/>
             </td>
             <td>
                 @using (Html.BeginForm("AddToQuiz", "Quiz"))
@@ -66,3 +63,6 @@
     @Html.PagedListPager(Model, page => Url.Action("Index",
         new {page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter}))
 </div>
+
+@Html.ActionLink("Lever de resultaten in", "quizView", "Quiz", new {area = ""}, new {@class = "btn btn-default"})
+

@@ -1,14 +1,15 @@
 ﻿@model ASPQuiz.Models.QuizIndexViewModel
 
-@if (Model.Quiz != null)
+@if (Model.Quiz != null || Model.Quiz.Lines != null)
 {
-    <h2>Your cart</h2>
+    <h2>Jouw toets!</h2>
     <table class="table">
         <thead>
         <tr>
             <th>Vraag</th>
             <th>Antwoord</th>
-            <th class="text-right">Goed</th>
+            <th class="text-right">Uitslag</th>
+            <th class="text-right">Goede Antwoord</th>
         </tr>
         </thead> <tbody>
         @foreach (var line in Model.Quiz.Lines)
@@ -19,17 +20,20 @@
 
                 @if (@line.Answer.Id == @line.Question.CorrectAnswer.Id)
                 {
-                    <td class="text-right">Ja</td>
+                    <td class="text-right">Goed</td>
+                    <td></td>
                 }
                 else
                 {
-                    <td class="text-right">Nee</td>
+                    <td class="text-right">Fout</td>
+                    <td class="text-right">@line.Question.CorrectAnswer.AnswerText</td>
                 }
 
             </tr>
         }
         </tbody>
     </table>
+    @Html.ActionLink("Start een nieuwe Quiz!", "ToHome", "Quiz", new {area = ""}, new {@class = "btn btn-default"})
 }
 else
 {

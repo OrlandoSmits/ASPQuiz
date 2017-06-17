@@ -93,6 +93,13 @@ namespace ASPQuiz.Controllers
             });
         }
 
+        public RedirectToRouteResult ToHome(Quiz quiz)
+        {
+            quiz.Clear();
+
+            return RedirectToAction("Index", "Home");
+        }
+
         private Quiz GetQuiz()
         {
             Quiz quiz = (Quiz) Session["Quiz"];
