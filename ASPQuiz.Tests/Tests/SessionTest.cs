@@ -9,7 +9,7 @@ using ASPQuiz.Domain.Entities;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 
-namespace ASPQuiz.Tests
+namespace ASPQuiz.Tests.Tests
 {
     [TestClass]
     public class SessionTest
