@@ -103,7 +103,7 @@ namespace ASPQuiz.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        private Quiz GetQuiz()
+        public Quiz GetQuiz()
         {
             Quiz quiz = (Quiz) Session["Quiz"];
 

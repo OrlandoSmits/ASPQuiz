@@ -13,8 +13,8 @@ namespace ASPQuiz.Domain.Concrete
         public EFDbContext() : base("EFDbContext")
         { }
 
-        public DbSet<Question> Questions { get; set; }
+        public virtual DbSet<Question> Questions { get; set; }
 
-        public DbSet<Answer> Answers { get; set; }
+        public virtual DbSet<Answer> Answers { get; set; }
     }
 }
