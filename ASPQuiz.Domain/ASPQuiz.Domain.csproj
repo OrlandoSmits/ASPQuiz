@@ -84,6 +84,7 @@
     <Compile Include="Entities\Answer.cs" />
     <Compile Include="Entities\Question.cs" />
     <Compile Include="Entities\Quiz.cs" />
+    <Compile Include="Entities\QuizLine.cs" />
     <Compile Include="Migrations\201705041113282_init-migration.cs" />
     <Compile Include="Migrations\201705041113282_init-migration.Designer.cs">
       <DependentUpon>201705041113282_init-migration.cs</DependentUpon>

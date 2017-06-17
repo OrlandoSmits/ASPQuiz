@@ -25,7 +25,7 @@ namespace ASPQuiz.Domain.Entities
             }
         }
 
-        public void RemoveLine(Question question)
+        public void RemoveItem(Question question)
         {
             lineCollection.RemoveAll(l => l.Question.Id == question.Id);
         }
@@ -43,18 +43,6 @@ namespace ASPQuiz.Domain.Entities
         public IEnumerable<QuizLine> Lines
         {
             get { return lineCollection; }
-        }
-    }
-
-    public class QuizLine
-    {
-        public Question Question { get; set; }
-        public Answer Answer { get; set; }
-
-
-        public Boolean isAnswerCorrect()
-        {
-          return this.Question.CorrectAnswer.Id == this.Answer.Id;
         }
     }
 }
