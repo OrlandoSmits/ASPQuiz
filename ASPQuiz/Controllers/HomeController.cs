@@ -40,31 +40,5 @@ namespace ASPQuiz.Controllers
 
             return View(Answers);
         }
-
-		public ViewResult Quiz(int? page)
-		{
-		    if (_questionList.Count == 0)
-		    {
-                Random rnd = new Random();
-		        int r = rnd.Next(1, _context.Questions.Count());
-
-                _questionList.Add(_context.Questions.FirstOrDefault(q => q.Id == r));
-                
-                for (var i = 0; i < 4; i++)
-		        {
-		            while (_questionList.Any(q => q.Id == r))
-		            {
-		                r = rnd.Next(1, _context.Questions.Count());
-		            }
-
-                    _questionList.Add(_context.Questions.FirstOrDefault(q => q.Id == r));
-		        }
-		    }
-
-		    int pageSize = 3;
-		    int pageNumber = (page ?? 1);
-			return View(_questionList.ToPagedList(pageNumber, pageSize));
-		}
-
     }
 }

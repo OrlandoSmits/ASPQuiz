@@ -1,0 +1,37 @@
+﻿@model ASPQuiz.Models.QuizIndexViewModel
+
+@if (Model.Quiz != null)
+{
+    <h2>Your cart</h2>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Vraag</th>
+            <th>Antwoord</th>
+            <th class="text-right">Goed</th>
+        </tr>
+        </thead> <tbody>
+        @foreach (var line in Model.Quiz.Lines)
+        {
+            <tr>
+                <td class="text-left">@line.Question.QuestionText</td>
+                <td class="text-left">@line.Answer.AnswerText</td>
+
+                @if (@line.Answer.Id == @line.Question.CorrectAnswer.Id)
+                {
+                    <td class="text-right">Ja</td>
+                }
+                else
+                {
+                    <td class="text-right">Nee</td>
+                }
+
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+else
+{
+    <h1>Wegwezen Gauw!</h1>
+}

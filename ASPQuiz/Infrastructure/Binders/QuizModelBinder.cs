@@ -14,22 +14,22 @@ namespace ASPQuiz.Infrastructure.Binders
         public object BindModel(ControllerContext controllerContext,
             ModelBindingContext bindingContext)
         {
-            Question question = null;
+            Quiz quiz = null;
             if (controllerContext.HttpContext.Session != null)
             {
-                question = (Question) controllerContext.HttpContext.Session[sessionKey];
+                quiz = (Quiz) controllerContext.HttpContext.Session[sessionKey];
             }
 
-            if (question == null)
+            if (quiz == null)
             {
-                question = new Question();
+                quiz = new Quiz();
                 if (controllerContext.HttpContext.Session != null)
                 {
-                    controllerContext.HttpContext.Session[sessionKey] = question;
+                    controllerContext.HttpContext.Session[sessionKey] = quiz;
                 }
             }
 
-            return question;
+            return quiz;
         }
       
     }

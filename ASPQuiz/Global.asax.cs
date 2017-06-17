@@ -16,7 +16,7 @@ namespace ASPQuiz
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
-            ModelBinders.Binders.Add(typeof(Question), new QuizModelBinder());
+            ModelBinders.Binders.Add(typeof(Quiz), new QuizModelBinder());
         }
     }
 }

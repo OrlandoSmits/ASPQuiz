@@ -1,0 +1,68 @@
+﻿@model PagedList.IPagedList<ASPQuiz.Domain.Entities.Question>
+
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css"/>
+
+@{
+    ViewBag.Title = "Quiz";
+}
+
+<h2>Quiz</h2>
+@foreach (var item in Model)
+{
+    <table class="table">
+        <tr class="col-sm-12 col-xs-12">
+            <th>
+                @Html.DisplayFor(model => item.QuestionText)
+            </th>
+            <th></th>
+            <th></th>
+        </tr>
+        <tr class="col-sm-12 col-xs-12">
+            <td class="col-sm-4 col-xs-4">
+                @Html.DisplayFor(model => item.Answer1.AnswerText)
+                <input type="checkbox"/>
+            </td>
+            <td>
+                @using (Html.BeginForm("AddToQuiz", "Quiz"))
+                {
+                    @Html.Hidden("questionId", item.Id)
+                    @Html.Hidden("answerId", item.Answer1.Id)
+                    @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+                    <input type="submit" data-inline="true" data-mini="true" value="Kies dit antwoord"/>
+                }
+            </td>
+            <td class="col-sm-4 col-xs-4">
+                @Html.DisplayFor(model => item.Answer2.AnswerText)
+                <input type="checkbox"/>
+            </td>
+            <td>
+                @using (Html.BeginForm("AddToQuiz", "Quiz"))
+                {
+                    @Html.Hidden("questionId", item.Id)
+                    @Html.Hidden("answerId", item.Answer2.Id)
+                    @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+                    <input type="submit" data-inline="true" data-mini="true" value="Kies dit antwoord"/>
+                }
+            </td>
+            <td class="col-sm-4 col-xs-4">
+                @Html.DisplayFor(model => item.CorrectAnswer.AnswerText)
+                <input type="checkbox"/>
+            </td>
+            <td>
+                @using (Html.BeginForm("AddToQuiz", "Quiz"))
+                {
+                    @Html.Hidden("questionId", item.Id)
+                    @Html.Hidden("answerId", item.CorrectAnswer.Id)
+                    @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+                    <input type="submit" data-inline="true" data-mini="true" value="Kies dit antwoord"/>
+                }
+            </td>
+        </tr>
+    </table>
+}
+
+<div class="text-center">
+    @Html.PagedListPager(Model, page => Url.Action("Index",
+        new {page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter}))
+</div>
