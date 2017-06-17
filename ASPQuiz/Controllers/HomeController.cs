@@ -61,7 +61,7 @@ namespace ASPQuiz.Controllers
 		        }
 		    }
 
-		    int pageSize = 1;
+		    int pageSize = 3;
 		    int pageNumber = (page ?? 1);
 			return View(_questionList.ToPagedList(pageNumber, pageSize));
 		}

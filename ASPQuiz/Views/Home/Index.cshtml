@@ -1,16 +1,8 @@
 ﻿@{
-    Layout = null;
+    ViewBag.Title = "Welkom";
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <title></title>
-</head>
-<body>
-<div>
-	Welkom bij de quiz!!!!!!!	
+<div class="col-sm-12 text-center">
+    <h1>Welkom bij het ASP.NET Tentamen van 2017</h1>
+    @Html.ActionLink("Start de Quiz", "Quiz", "Home", new {area = ""}, new {@class = "btn btn-default"})
 </div>
-</body>
-</html>

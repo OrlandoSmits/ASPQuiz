@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using ASPQuiz.Domain.Entities;
+using ASPQuiz.Infrastructure.Binders;
 
 namespace ASPQuiz
 {
@@ -13,6 +15,8 @@ namespace ASPQuiz
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+            ModelBinders.Binders.Add(typeof(Question), new QuizModelBinder());
         }
     }
 }
