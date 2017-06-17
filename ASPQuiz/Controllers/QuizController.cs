@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ASPQuiz.Domain.Abstract;
@@ -45,13 +46,6 @@ namespace ASPQuiz.Controllers
             int pageSize = 3;
             int pageNumber = (page ?? 1);
             return View(_questionList.ToPagedList(pageNumber, pageSize));
-
-//            return View(new QuizIndexViewModel
-//            {
-//                ReturnUrl = returnUrl,
-//                Quiz = quiz
-//         
-//            });
         }
 
         public RedirectToRouteResult AddToQuiz(Quiz quiz, int questionId, int answerId, string returnUrl)
@@ -86,6 +80,15 @@ namespace ASPQuiz.Controllers
 
         public ViewResult quizView(string returnUrl)
         {
+            Quiz quiz = GetQuiz();
+
+            if (quiz.Lines.Count() < 5)
+            {
+             
+                // TODO: Give Error to User
+            }
+
+
             return View(new QuizIndexViewModel
             {
                 Quiz = GetQuiz(),
@@ -103,7 +106,7 @@ namespace ASPQuiz.Controllers
         private Quiz GetQuiz()
         {
             Quiz quiz = (Quiz) Session["Quiz"];
-       
+
             return quiz;
         }
     }
