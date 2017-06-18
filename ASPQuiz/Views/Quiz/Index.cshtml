@@ -13,11 +13,20 @@
 
 <h4>Quiz</h4>
 <div class="col-sm-9 col-xs-9">
+    @{
+        int Counter = 0;  ;}
+    @if (Model.PagedList.IsLastPage)
+    {
+        Counter = Counter + 3;
+    }
+ 
+        
     @foreach (var item in Model.PagedList)
     {
+        Counter += 1;
         <div class="card col-sm-12 col-xs-12">
             <div class="card-block">
-                <h4 class="card-title"></h4>
+                <h4 class="card-title">Vraag @Counter van @Model.PagedList.TotalItemCount</h4>
                 <p class="card-text">@item.QuestionText</p>
             </div>
             <ul class="list-group list-group-flush">

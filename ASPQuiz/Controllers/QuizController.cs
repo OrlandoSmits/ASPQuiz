@@ -46,7 +46,7 @@ namespace ASPQuiz.Controllers
             int pageSize = 3;
             int pageNumber = (page ?? 1);
 
-            return View(new QuizPagedListViewModel
+          return View(new QuizPagedListViewModel
             {
                 PagedList = _questionList.ToPagedList(pageNumber, pageSize),
                 Quiz = quiz
