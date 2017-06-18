@@ -6,6 +6,11 @@
 @{
     ViewBag.Title = "Quiz";
 }
+<div class="col-xs-12 col-sm-12 text-center">
+    @Html.PagedListPager(Model.PagedList, page => Url.Action("Index",
+        new {page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter}))
+</div>
+
 <h4>Quiz</h4>
 <div class="col-sm-9 col-xs-9">
     @foreach (var item in Model.PagedList)
@@ -26,7 +31,7 @@
                         @item.Answer1.AnswerText
                     </li>
                     <li style="list-style-type: none">
-                        <input type="submit" data-inline="true" class="btn btn-danger" data-mini="true" value="Kies dit antwoord"/>
+                        <input type="submit" data-inline="true" class="btn btn-success" data-mini="true" value="Kies dit antwoord"/>
                     </li>
                 }
 
@@ -40,7 +45,7 @@
                         @item.Answer2.AnswerText
                     </li>
                     <li style="list-style-type: none">
-                        <input type="submit" class="btn btn-default" data-inline="true" data-mini="true" value="Kies dit antwoord"/>
+                        <input type="submit" class="btn btn-success" data-inline="true" data-mini="true" value="Kies dit antwoord"/>
                     </li>
                 }
 
@@ -54,7 +59,7 @@
                         @item.CorrectAnswer.AnswerText
                     </li>
                     <li style="list-style-type: none">
-                        <input type="submit" class="btn btn-info" data-inline="true" data-mini="true" value="Kies dit antwoord"/>
+                        <input type="submit" class="btn btn-success" data-inline="true" data-mini="true" value="Kies dit antwoord"/>
                     </li>
                 }
             </ul>
@@ -65,17 +70,25 @@
     <ul class="list-group list-group-flush">
         @foreach (var listitem in @Model.Quiz.Lines)
         {
-            <li class="list-group-item">@listitem.Question.QuestionText - @listitem.Answer.AnswerText</li>
+            using (Html.BeginForm("RemoveFromQuiz", "Quiz"))
+            {
+                @Html.Hidden("questionId", listitem.Question.Id)
+                @Html.Hidden("answerId", listitem.Answer.Id)
+                @Html.Hidden("returnUrl", Request.Url)
+                <li class="list-group-item">@listitem.Question.QuestionText - @listitem.Answer.AnswerText</li>
+                <li style="list-style-type: none">
+                    <input type="submit" class="btn btn-danger" data-inline="true" data-mini="true" value="Verwijder"/>
+                </li>
+                <br />
+            }
+        }
+        
+        @if (Model.Quiz.Lines.Count() == 5)
+        {
+            
+            @Html.ActionLink("Lever de resultaten in", "quizView", "Quiz", new {area = ""}, new {@class = "btn btn-default"})
         }
     </ul>
 </div>
 
-<div class="col-xs-12 col-sm-12 text-center">
-    @Html.PagedListPager(Model.PagedList, page => Url.Action("Index",
-        new {page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter}))
-</div>
 
-@if (Model.Quiz.Lines.Count() == 5)
-{
-    @Html.ActionLink("Lever de resultaten in", "quizView", "Quiz", new {area = ""}, new {@class = "btn btn-default"})
-}
