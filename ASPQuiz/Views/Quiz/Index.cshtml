@@ -12,15 +12,16 @@
 </div>
 
 <h4>Quiz</h4>
-<div class="col-sm-9 col-xs-9">
+<div class="col-sm-8 col-xs-8">
     @{
-        int Counter = 0;  ;}
+        int Counter = 0;
+        ;
+    }
     @if (Model.PagedList.IsLastPage)
     {
         Counter = Counter + 3;
     }
- 
-        
+
     @foreach (var item in Model.PagedList)
     {
         Counter += 1;
@@ -30,7 +31,6 @@
                 <p class="card-text">@item.QuestionText</p>
             </div>
             <ul class="list-group list-group-flush">
-
                 @using (Html.BeginForm("AddToQuiz", "Quiz"))
                 {
                     @Html.Hidden("questionId", item.Id)
@@ -43,7 +43,6 @@
                         <input type="submit" data-inline="true" class="btn btn-success" data-mini="true" value="Kies dit antwoord"/>
                     </li>
                 }
-
                 @using (Html.BeginForm("AddToQuiz", "Quiz"))
                 {
                     @Html.Hidden("questionId", item.Id)
@@ -56,7 +55,6 @@
                         <input type="submit" class="btn btn-success" data-inline="true" data-mini="true" value="Kies dit antwoord"/>
                     </li>
                 }
-
                 @using (Html.BeginForm("AddToQuiz", "Quiz"))
                 {
                     @Html.Hidden("questionId", item.Id)
@@ -73,7 +71,7 @@
         </div>
     }
 </div>
-<div class="col-sm-3 col-xs-3">
+<div class="col-sm-4 col-xs-4">
     <ul class="list-group list-group-flush">
         @foreach (var listitem in @Model.Quiz.Lines)
         {
@@ -89,7 +87,6 @@
                 <br/>
             }
         }
-
         @if (Model.Quiz.Lines.Count() == 5)
         {
             @Html.ActionLink("Lever de resultaten in", "quizView", "Quiz", new {area = ""}, new {@class = "btn btn-default"})
