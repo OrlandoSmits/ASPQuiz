@@ -87,6 +87,9 @@ namespace ASPQuiz.Tests.Tests
             // Act - Add Question with ID 1 to the Quiz. Together with the Answer ID 3
             target.AddToQuiz(quiz, 1, 3, "/Quiz");
 
+            // Act - Add the Same Question
+            target.AddToQuiz(quiz, 1, 3, "/Quiz");
+
             // Assert - The Lines in the Quiz object has to have te length 1
             Assert.AreEqual(quiz.Lines.Count(), 1);
 
