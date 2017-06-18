@@ -15,7 +15,6 @@ namespace ASPQuiz.Controllers
     public class HomeController : Controller
     {
         private EFDbContext _context;
-        private static List<Question> _questionList = new List<Question>();
 
         public HomeController(EFDbContext context)
         {

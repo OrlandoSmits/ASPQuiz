@@ -100,6 +100,12 @@ namespace ASPQuiz.Controllers
             });
         }
 
+        public ViewResult QuizSession()
+        {
+            Quiz quiz = GetQuiz();
+            return View(quiz);
+        }
+
         public RedirectToRouteResult ToHome(Quiz quiz)
         {
             quiz.Clear();
