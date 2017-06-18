@@ -35,7 +35,6 @@
                     </li>
                 }
 
-
                 @using (Html.BeginForm("AddToQuiz", "Quiz"))
                 {
                     @Html.Hidden("questionId", item.Id)
@@ -48,7 +47,6 @@
                         <input type="submit" class="btn btn-success" data-inline="true" data-mini="true" value="Kies dit antwoord"/>
                     </li>
                 }
-
 
                 @using (Html.BeginForm("AddToQuiz", "Quiz"))
                 {
@@ -79,16 +77,13 @@
                 <li style="list-style-type: none">
                     <input type="submit" class="btn btn-danger" data-inline="true" data-mini="true" value="Verwijder"/>
                 </li>
-                <br />
+                <br/>
             }
         }
-        
+
         @if (Model.Quiz.Lines.Count() == 5)
         {
-            
             @Html.ActionLink("Lever de resultaten in", "quizView", "Quiz", new {area = ""}, new {@class = "btn btn-default"})
         }
     </ul>
 </div>
-
-
