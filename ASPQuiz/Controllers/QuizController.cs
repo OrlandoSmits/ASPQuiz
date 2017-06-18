@@ -43,11 +43,14 @@ namespace ASPQuiz.Controllers
                 }
             }
 
-            ViewBag.QuizCount = GetQuiz().Lines.Count();
-
             int pageSize = 3;
             int pageNumber = (page ?? 1);
-            return View(_questionList.ToPagedList(pageNumber, pageSize));
+
+            return View(new QuizPagedListViewModel
+            {
+                PagedList = _questionList.ToPagedList(pageNumber, pageSize),
+                Quiz = quiz
+            });
         }
 
         public RedirectToRouteResult AddToQuiz(Quiz quiz, int questionId, int answerId, string returnUrl)

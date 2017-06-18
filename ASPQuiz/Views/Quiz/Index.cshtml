@@ -1,4 +1,4 @@
-﻿@model PagedList.IPagedList<ASPQuiz.Domain.Entities.Question>
+﻿@model ASPQuiz.Models.QuizPagedListViewModel
 
 @using PagedList.Mvc;
 <link href="~/Content/PagedList.css" rel="stylesheet" type="text/css"/>
@@ -8,7 +8,8 @@
 }
 
 <h2>Quiz - @ViewBag.QuizCount</h2>
-@foreach (var item in Model)
+
+@foreach (var item in Model.PagedList)
 {
     <table class="table">
         <tr class="col-sm-12 col-xs-12">
@@ -60,11 +61,11 @@
 }
 
 <div class="text-center">
-    @Html.PagedListPager(Model, page => Url.Action("Index",
+    @Html.PagedListPager(Model.PagedList, page => Url.Action("Index",
         new {page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter}))
 </div>
 
-@if (ViewBag.QuizCount == 5)
+@if (Model.Quiz.Lines.Count() == 5)
 {
     @Html.ActionLink("Lever de resultaten in", "quizView", "Quiz", new {area = ""}, new {@class = "btn btn-default"})
 }

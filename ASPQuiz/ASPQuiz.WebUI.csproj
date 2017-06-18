@@ -188,6 +188,7 @@
     <Compile Include="Infrastructure\Binders\QuizModelBinder.cs" />
     <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
     <Compile Include="Models\QuizIndexViewModel.cs" />
+    <Compile Include="Models\QuizPagedListViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
