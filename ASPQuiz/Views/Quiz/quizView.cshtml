@@ -3,6 +3,7 @@
 @if (Model.Quiz != null)
 {
     <h2>Jouw toets!</h2>
+    <h3>@Model.Quiz.CalculateGrade() van de 25 punten</h3>
     <table class="table">
         <thead>
         <tr>

@@ -86,8 +86,7 @@ namespace ASPQuiz.Controllers
         public ViewResult quizView(string returnUrl)
         {
             Quiz quiz = GetQuiz();
-
-
+           
             if (quiz.Lines.Count() < 5)
             {
                 // TODO: Give Error to User
