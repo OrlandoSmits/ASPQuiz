@@ -7,7 +7,7 @@
     ViewBag.Title = "Quiz";
 }
 
-<h2>Quiz</h2>
+<h2>Quiz - @ViewBag.QuizCount</h2>
 @foreach (var item in Model)
 {
     <table class="table">
@@ -64,5 +64,7 @@
         new {page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter}))
 </div>
 
-@Html.ActionLink("Lever de resultaten in", "quizView", "Quiz", new {area = ""}, new {@class = "btn btn-default"})
-
+@if (ViewBag.QuizCount == 5)
+{
+    @Html.ActionLink("Lever de resultaten in", "quizView", "Quiz", new {area = ""}, new {@class = "btn btn-default"})
+}

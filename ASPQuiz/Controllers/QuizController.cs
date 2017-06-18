@@ -43,6 +43,8 @@ namespace ASPQuiz.Controllers
                 }
             }
 
+            ViewBag.QuizCount = GetQuiz().Lines.Count();
+
             int pageSize = 3;
             int pageNumber = (page ?? 1);
             return View(_questionList.ToPagedList(pageNumber, pageSize));
@@ -72,7 +74,7 @@ namespace ASPQuiz.Controllers
 
             if (question != null)
             {
-                quiz.RemoveLine(question);
+                quiz.RemoveItem(question);
             }
 
             return RedirectToAction("Index", new {returnUrl});
@@ -82,9 +84,9 @@ namespace ASPQuiz.Controllers
         {
             Quiz quiz = GetQuiz();
 
+
             if (quiz.Lines.Count() < 5)
             {
-             
                 // TODO: Give Error to User
             }
 
