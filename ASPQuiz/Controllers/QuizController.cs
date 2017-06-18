@@ -53,7 +53,7 @@ namespace ASPQuiz.Controllers
             });
         }
 
-        public RedirectToRouteResult AddToQuiz(Quiz quiz, int questionId, int answerId, string returnUrl)
+        public RedirectResult AddToQuiz(Quiz quiz, int questionId, int answerId, string returnUrl)
         {
             Question question = _context.Questions
                 .FirstOrDefault(q => q.Id == questionId);
@@ -67,10 +67,10 @@ namespace ASPQuiz.Controllers
             }
 
 
-            return RedirectToAction("Index", new {returnUrl});
+            return Redirect(returnUrl);
         }
 
-        public RedirectToRouteResult RemoveFromQuiz(Quiz quiz, int questionId, string returnUrl)
+        public RedirectResult RemoveFromQuiz(Quiz quiz, int questionId, string returnUrl)
         {
             Question question = _context.Questions
                 .FirstOrDefault(q => q.Id == questionId);
@@ -80,7 +80,7 @@ namespace ASPQuiz.Controllers
                 quiz.RemoveItem(question);
             }
 
-            return RedirectToAction("Index", new {returnUrl});
+            return Redirect(returnUrl);
         }
 
         public ViewResult quizView(string returnUrl)
