@@ -103,6 +103,7 @@ namespace ASPQuiz.Controllers
         public RedirectToRouteResult ToHome(Quiz quiz)
         {
             quiz.Clear();
+            _questionList.Clear();
 
             return RedirectToAction("Index", "Home");
         }
