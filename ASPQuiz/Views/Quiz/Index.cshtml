@@ -7,7 +7,7 @@
     ViewBag.Title = "Quiz";
 }
 <h4>Quiz</h4>
-<div class="col-sm-12 col-xs-12">
+<div class="col-sm-9 col-xs-9">
     @foreach (var item in Model.PagedList)
     {
         <div class="card col-sm-12 col-xs-12">
@@ -26,7 +26,7 @@
                         @item.Answer1.AnswerText
                     </li>
                     <li style="list-style-type: none">
-                        <input type="submit" data-inline="true" class="btn btn-success" data-mini="true" value="Kies dit antwoord"/>
+                        <input type="submit" data-inline="true" class="btn btn-danger" data-mini="true" value="Kies dit antwoord"/>
                     </li>
                 }
 
@@ -40,7 +40,7 @@
                         @item.Answer2.AnswerText
                     </li>
                     <li style="list-style-type: none">
-                        <input type="submit" class="btn btn-success" data-inline="true" data-mini="true" value="Kies dit antwoord"/>
+                        <input type="submit" class="btn btn-default" data-inline="true" data-mini="true" value="Kies dit antwoord"/>
                     </li>
                 }
 
@@ -54,12 +54,20 @@
                         @item.CorrectAnswer.AnswerText
                     </li>
                     <li style="list-style-type: none">
-                        <input type="submit" class="btn btn-success" data-inline="true" data-mini="true" value="Kies dit antwoord"/>
+                        <input type="submit" class="btn btn-info" data-inline="true" data-mini="true" value="Kies dit antwoord"/>
                     </li>
                 }
             </ul>
         </div>
     }
+</div>
+<div class="col-sm-3 col-xs-3">
+    <ul class="list-group list-group-flush">
+        @foreach (var listitem in @Model.Quiz.Lines)
+        {
+            <li class="list-group-item">@listitem.Question.QuestionText - @listitem.Answer.AnswerText</li>
+        }
+    </ul>
 </div>
 
 <div class="col-xs-12 col-sm-12 text-center">
