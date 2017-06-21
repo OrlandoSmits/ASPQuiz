@@ -10,13 +10,15 @@
             @Html.Hidden("returnUrl", Request.Url)
             <li class="list-group-item">@listitem.Question.QuestionText - @listitem.Answer.AnswerText</li>
             <li style="list-style-type: none">
-                <input type="submit" class="btn btn-danger" data-inline="true" data-mini="true" value="Verwijder"/>
+                <input type="submit" class="btn btn-danger pull-right answerBtn answerDeleteBtn" data-inline="true" data-mini="true" value="Verwijder"/>
             </li>
             <br/>
+
+            
         }
     }
      @if (Model.Lines.Count() == 5)
      {
-         @Html.ActionLink("Lever de resultaten in", "quizView", "Quiz", new {area = ""}, new {@class = "btn btn-default"})
+         @Html.ActionLink("Lever de resultaten in", "quizView", "Quiz", new {area = ""}, new {@class = "btn btn-default pull-right resultBtn"})
      }
  </ul>

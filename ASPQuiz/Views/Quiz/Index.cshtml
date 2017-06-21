@@ -47,10 +47,7 @@
                         @Html.Hidden("answerId", item.Answer1.Id)
                         @Html.Hidden("returnUrl", Request.Url)
                         <li class="list-group-item">
-                            @item.Answer1.AnswerText
-                        </li>
-                        <li style="list-style-type: none">
-                            <input type="submit" data-inline="true" class="btn btn-success" data-mini="true" value="Kies dit antwoord"/>
+                            @item.Answer1.AnswerText <input type="submit" data-inline="true" class="btn btn-success pull-right answerBtn" data-mini="true" value="Kies dit antwoord"/>
                         </li>
                     }
                     @using (Html.BeginForm("AddToQuiz", "Quiz"))
@@ -59,10 +56,7 @@
                         @Html.Hidden("answerId", item.Answer2.Id)
                         @Html.Hidden("returnUrl", Request.Url)
                         <li class="list-group-item">
-                            @item.Answer2.AnswerText
-                        </li>
-                        <li style="list-style-type: none">
-                            <input type="submit" class="btn btn-success" data-inline="true" data-mini="true" value="Kies dit antwoord"/>
+                            @item.Answer2.AnswerText <input type="submit" data-inline="true" class="btn btn-success pull-right answerBtn" data-mini="true" value="Kies dit antwoord"/>
                         </li>
                     }
                     @using (Html.BeginForm("AddToQuiz", "Quiz"))
@@ -71,17 +65,14 @@
                         @Html.Hidden("answerId", item.CorrectAnswer.Id)
                         @Html.Hidden("returnUrl", Request.Url)
                         <li class="list-group-item">
-                            @item.CorrectAnswer.AnswerText
-                        </li>
-                        <li style="list-style-type: none">
-                            <input type="submit" class="btn btn-success" data-inline="true" data-mini="true" value="Kies dit antwoord"/>
+                            @item.CorrectAnswer.AnswerText <input type="submit" class="btn btn-success pull-right answerBtn" data-inline="true" data-mini="true" value="Kies dit antwoord"/>
                         </li>
                     }
                 </ul>
             }
-            </div>
+        </div>
     }
 </div>
 <div class="col-sm-4 col-xs-4">
-   @Html.Partial("QuizSession", Model.Quiz)
+    @Html.Partial("QuizSession", Model.Quiz)
 </div>
