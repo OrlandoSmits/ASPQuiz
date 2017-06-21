@@ -29,45 +29,57 @@
                 <h4 class="card-title">Vraag @Counter van @Model.PagedList.TotalItemCount</h4>
                 <p class="card-text">@item.QuestionText</p>
             </div>
-            <ul class="list-group list-group-flush">
-                @using (Html.BeginForm("AddToQuiz", "Quiz"))
-                {
-                    @Html.Hidden("questionId", item.Id)
-                    @Html.Hidden("answerId", item.Answer1.Id)
-                    @Html.Hidden("returnUrl", Request.Url)
+            @if (Model.Quiz.Lines.Any(x => x.Question.Id == item.Id))
+            {
+                var Quiz = Model.Quiz.Lines.FirstOrDefault(x => x.Question.Id == item.Id);
+                <ul class="list-group list-group-flush">
                     <li class="list-group-item">
-                        @item.Answer1.AnswerText
+                        @Quiz.Answer.AnswerText
                     </li>
-                    <li style="list-style-type: none">
-                        <input type="submit" data-inline="true" class="btn btn-success" data-mini="true" value="Kies dit antwoord"/>
-                    </li>
-                }
-                @using (Html.BeginForm("AddToQuiz", "Quiz"))
-                {
-                    @Html.Hidden("questionId", item.Id)
-                    @Html.Hidden("answerId", item.Answer2.Id)
-                    @Html.Hidden("returnUrl", Request.Url)
-                    <li class="list-group-item">
-                        @item.Answer2.AnswerText
-                    </li>
-                    <li style="list-style-type: none">
-                        <input type="submit" class="btn btn-success" data-inline="true" data-mini="true" value="Kies dit antwoord"/>
-                    </li>
-                }
-                @using (Html.BeginForm("AddToQuiz", "Quiz"))
-                {
-                    @Html.Hidden("questionId", item.Id)
-                    @Html.Hidden("answerId", item.CorrectAnswer.Id)
-                    @Html.Hidden("returnUrl", Request.Url)
-                    <li class="list-group-item">
-                        @item.CorrectAnswer.AnswerText
-                    </li>
-                    <li style="list-style-type: none">
-                        <input type="submit" class="btn btn-success" data-inline="true" data-mini="true" value="Kies dit antwoord"/>
-                    </li>
-                }
-            </ul>
-        </div>
+                </ul>
+            }
+            else
+            {
+                <ul class="list-group list-group-flush">
+                    @using (Html.BeginForm("AddToQuiz", "Quiz"))
+                    {
+                        @Html.Hidden("questionId", item.Id)
+                        @Html.Hidden("answerId", item.Answer1.Id)
+                        @Html.Hidden("returnUrl", Request.Url)
+                        <li class="list-group-item">
+                            @item.Answer1.AnswerText
+                        </li>
+                        <li style="list-style-type: none">
+                            <input type="submit" data-inline="true" class="btn btn-success" data-mini="true" value="Kies dit antwoord"/>
+                        </li>
+                    }
+                    @using (Html.BeginForm("AddToQuiz", "Quiz"))
+                    {
+                        @Html.Hidden("questionId", item.Id)
+                        @Html.Hidden("answerId", item.Answer2.Id)
+                        @Html.Hidden("returnUrl", Request.Url)
+                        <li class="list-group-item">
+                            @item.Answer2.AnswerText
+                        </li>
+                        <li style="list-style-type: none">
+                            <input type="submit" class="btn btn-success" data-inline="true" data-mini="true" value="Kies dit antwoord"/>
+                        </li>
+                    }
+                    @using (Html.BeginForm("AddToQuiz", "Quiz"))
+                    {
+                        @Html.Hidden("questionId", item.Id)
+                        @Html.Hidden("answerId", item.CorrectAnswer.Id)
+                        @Html.Hidden("returnUrl", Request.Url)
+                        <li class="list-group-item">
+                            @item.CorrectAnswer.AnswerText
+                        </li>
+                        <li style="list-style-type: none">
+                            <input type="submit" class="btn btn-success" data-inline="true" data-mini="true" value="Kies dit antwoord"/>
+                        </li>
+                    }
+                </ul>
+            }
+            </div>
     }
 </div>
 <div class="col-sm-4 col-xs-4">
